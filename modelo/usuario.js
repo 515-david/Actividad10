@@ -7,8 +7,8 @@ const UsuarioSchema = new Schema({
     celularUsuario: Number,
     emailUsuario: String,
     direccionUsuario: String,
-    usuarioUsuario: String,
-    contraseñaUsuario: String,
+    usserUsuario: String,
+    passwordUsuario: String,
 })
 
 module.exports = mongoose.model('Usuario', UsuarioSchema)

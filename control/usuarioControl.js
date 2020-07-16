@@ -1,4 +1,4 @@
-const Usuario = require('../modelo/usuarios')
+const Usuario = require('../modelo/usuario')
 
 
 // CREAR USUARIO
@@ -56,7 +56,7 @@ function actualizarUsuario(req, res){
     var UsuarioId = req.params.id;
     var nuevosDatosUsuario = req.body;
 
-    Usuario.findByIdAndUpdate(usuarioId, nuevosDatosUsuario,(err, UsuarioActualizado)=>{
+    Usuario.findByIdAndUpdate(UsuarioId, nuevosDatosUsuario,(err, UsuarioActualizado)=>{
         if(err){
             res.status(500).send({message:"Error del servidor"});
         }else{
@@ -78,7 +78,7 @@ function actualizarUsuario(req, res){
 function eliminarUsuario(req, res){
     var usuariorId = req.params.id;
 
-    usuario.findByIdAndDelete(usuariorId, (err, usuarioEliminado)=>{
+    Usuario.findByIdAndDelete(usuariorId, (err, usuarioEliminado)=>{
         if(err){
             res.status(500).send({message:"Error del servidor"});
         }else{
