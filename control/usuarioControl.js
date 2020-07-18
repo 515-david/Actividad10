@@ -11,8 +11,8 @@ function crearUsuario(req, res){
     usuario.celularUsuario = parametros.celularUsuario;
     usuario.emailUsuario = parametros.emailUsuario;
     usuario.direccionUsuario = parametros.direccionUsuario;
-    usuario.usuarioUsuario= parametros.usuarioUsuario;
-    usuario.contraseñaUsuario = parametros.contraseñaUsuario;
+    usuario.usserUsuario= parametros.usserUsuario;
+    usuario.passwordUsuario = parametros.passwordUsuario;
 
     usuario.save((err, usuarioNuevo)=>{
         if(err){
