@@ -3,7 +3,7 @@ const app = require('./app.js');
 
 const port = 3000;
 
-const URI = 'mongodb://localhost:27017/ListaToDo';
+const URI = 'mongodb://localhost:27017/Usuarios';
 
 mongoose.connect(URI, (err, res)=>{
     if(err){

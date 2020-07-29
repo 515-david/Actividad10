@@ -5,6 +5,7 @@ const Usuario = require('../modelo/usuario')
 function crearUsuario(req, res){
     var usuario = new Usuario();
     var parametros = req.body;
+    console.log(parametros)
 
     usuario.nombreUsuario = parametros.nombreUsuario;
     usuario.apellidoUsuario = parametros.apellidoUsuario;
@@ -22,8 +23,9 @@ function crearUsuario(req, res){
                 res.status(200).send({message:"No fue posible realizar el registro del usuario"});
             }else{
                 res.status(200).send({
-                    status:'Usuario Creado',
-                    usuarios: usuarioNuevo
+                    message:'Usuario Creado',
+                    usuarios: usuarioNuevo,
+                    statusCode: 200
                 });
             }
         }
@@ -41,8 +43,9 @@ function obtenerUsuario(req, res){
                 res.status(200).send({message:"No fue posible encontrar el usuario"});
             }else{
                 res.status(200).send({
-                    status:'Usuario Encontrado',
-                    usuarios: usuariosEncontrados
+                    message:'Usuario Encontrado',
+                    usuarios: usuariosEncontrados,
+                    statusCode: 200
                 });
             }
         }
@@ -55,6 +58,7 @@ function obtenerUsuario(req, res){
 function actualizarUsuario(req, res){
     var UsuarioId = req.params.id;
     var nuevosDatosUsuario = req.body;
+    console.log(nuevosDatosUsuario)
 
     Usuario.findByIdAndUpdate(UsuarioId, nuevosDatosUsuario,(err, UsuarioActualizado)=>{
         if(err){
@@ -64,8 +68,9 @@ function actualizarUsuario(req, res){
                 res.status(200).send({message:"No fue posible actualizar el usuario"});
             }else{
                 res.status(200).send({
-                    status:'Usuario Actualizado',
-                    usuarios: nuevosDatosUsuario
+                    message:'Usuario Actualizado',
+                    usuarios: nuevosDatosUsuario,
+                    statusCode: 200
                 });
             }
         }
@@ -86,8 +91,9 @@ function eliminarUsuario(req, res){
                 res.status(404).send({message:"No fue posible eliminar el usaurio"});
             }else{
                 res.status(200).send({
-                    status:'Usuario Eliminado',
-                    usuarios: usuarioEliminado
+                    message:'Usuario Eliminado',
+                    usuarios: usuarioEliminado,
+                    statusCode: 200
                 });
             }
         }
